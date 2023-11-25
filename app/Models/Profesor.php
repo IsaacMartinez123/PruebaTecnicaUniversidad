@@ -9,7 +9,11 @@ class Profesor extends Model
 {
     use HasFactory;
 
-    protected $filable = [
+    public $timestamps = false;
+
+    protected $table = 'profesores';
+
+    protected $fillable = [
         'documento',
         'nombre',
         'telefono',

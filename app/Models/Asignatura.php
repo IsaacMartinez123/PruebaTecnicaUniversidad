@@ -9,7 +9,10 @@ class Asignatura extends Model
 {
     use HasFactory;
 
-    protected $filable = [
+    public $timestamps = false;
+
+    protected $fillable = [
+
         'nombre',
         'descripcion',
         'creditos',

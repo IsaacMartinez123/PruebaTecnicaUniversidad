@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vinculo_profesor_estudiante', function (Blueprint $table) {
-            $table->id();
-            $table->integer('documento_profesor');
-            $table->integer('documento_estudiante');
-            $table->integer('asignatura_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('profesor_id');
+            $table->unsignedBigInteger('estudiante_id');
+            $table->unsignedBigInteger('asignatura_id');
             $table->timestamps();
 
-            $table->foreign('documento_profesor')->references('documento')->on('profesores');
-            $table->foreign('documento_estudiante')->references('documento')->on('estudiantes');
+            $table->foreign('profesor_id')->references('id')->on('profesores');
+            $table->foreign('estudiante_id')->references('id')->on('estudiantes');
             $table->foreign('asignatura_id')->references('id')->on('asignaturas');
-            
         });
     }
+
 
     /**
      * Reverse the migrations.

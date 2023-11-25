@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('asignaturas', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->integer('creditos');
             $table->string('area_conocimiento');
             $table->enum('tipo_materia', ['Electiva', 'Obligatoria']);
